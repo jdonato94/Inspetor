@@ -1,0 +1,74 @@
+import random
+import math
+
+def assassino(self):
+        escolhasuspeito = random.randint(0,3)
+        suspeitos = ['Mordomo', 'Amante', 'Sócio', 'Assaltante']
+        suspeito = suspeitos[escolhasuspeito]
+        return escolhasuspeito
+
+
+
+def modo(self):
+    escolhaarmas = random.randint(0,3)
+    armas = ['Corda', 'Revolver', 'Faca', 'Veneno']        
+    arma = armas[escolhaarmas]
+    return escolhaarmas
+
+        
+
+    
+def jogada(self):
+
+    
+    vida = 0
+    suspeito_jogada = assassino(0)
+    arma_jogada = modo(0)
+    assassinato = [suspeito_jogada,arma_jogada]
+     
+    print('''Descubra o suspeito e a arma do assassinato.''')
+    
+    while vida == 0:
+        print(assassinato)
+        palpitesuspeito = int(input('''Quem você acha que é o suspeito?
+        Digite o digito de seu palpite.
+        1. Mordomo
+        2. Amante
+        3. Sócio
+        4. Assaltante
+            ''')) 
+        palpitearma = int(input('''Qual foi a arma?
+        Digite o digito de seu palpite.
+        1. Corda
+        2. Revolver
+        3. Faca
+        4. Veneno                
+            ''')) 
+        adivinhacao = [palpitesuspeito, palpitearma]
+                 
+        if adivinhacao == assassinato:
+                
+            print('Você venceu!')
+            vida = 1
+                            
+        else:
+            
+            assassino(0,1)
+            modo(0,1)
+                
+            if palpitesuspeito == assassino(0) and palpitearma != modo(0):
+                print('Você acertou um item')
+            elif palpitesuspeito != assassino(0) and palpitearma == modo(0):
+                print('Você acertou um item')
+            else:
+                pass 
+    else:            
+            pass
+
+
+
+
+        
+
+
+jogada(0)     
